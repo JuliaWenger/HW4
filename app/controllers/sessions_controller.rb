@@ -8,9 +8,12 @@ class SessionsController < ApplicationController
     @user = User.find_by({ "email" => params["email"] })
     # 2. if the user exists -> check if they know their password
     if @user != nil && @user["password"] == params["password"]
-      #if BCrypt::Password.new(@user["password"]) == params["password"]
+    #if BCrypt::Password.new(@user["password"]) == params["password"]
         # 3. if they know their password -> login is successful
-        
+
+        #assign a cookie to show the user name in the corner
+        session["user_id"] = @user["id"]
+
        flash["notice"] = "Welcome."
         redirect_to "/places"
       else
@@ -19,6 +22,7 @@ class SessionsController < ApplicationController
         redirect_to "/login"
       #end
    end
+  #end 
   end 
 
   def destroy
