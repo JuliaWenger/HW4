@@ -26,13 +26,13 @@
        </ul>
       
       <p class="d-flex">
-
+      <% if @current_user %>
           <a class="btn btn-secondary" href="/logout">Logout</a>
-      
-          <a class="btn btn-secondary" href="/login">Login</a>
-       
-          <a class="btn btn-secondary" href="/users/new">Signup</a>
 
+        <% else %>
+          <a class="btn btn-secondary" href="/login">Login</a>
+          <a class="btn btn-secondary" href="/users/new">Signup</a>
+        <% end %>
       </p>
 
     </div>

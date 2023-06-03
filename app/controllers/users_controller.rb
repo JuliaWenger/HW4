@@ -11,8 +11,8 @@ class UsersController < ApplicationController
     @user["password"] = BCrypt::Password.create(params["user"]["password"])
 
     @user.save
-    redirect_to "/users/#{@user["id"]}"
-    #redirect_to "/login"
+    #redirect_to "/users/#{@user["id"]}"
+    redirect_to "/login"
   end
 
 end
