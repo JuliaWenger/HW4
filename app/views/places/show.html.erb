@@ -5,23 +5,26 @@
 <div class="row">
 
 <% for post in @posts %>
-<div class="col-md-4 col-sm-12">
+  <div class="col-md-4 col-sm-12">
 
-  <h3><%= post["title"] %></h3>
-  <h4><%= post["posted_on"] %></h4>
-  <p><%= post["description"] %></p>
 
-  <% if post.uploaded_image.attached? %>
-    <img src="<%= url_for(post.uploaded_image) %>" class="img-fluid">
-    <% else %>
-      <img src="<%post["image"] %>" class="img-fluid">
+    <h3><%= post["title"] %></h3>
+    <h4><%= post["posted_on"] %></h4>
+    <p><%= post["description"] %></p>
+
+    <% if post.uploaded_image.attached? %>
+      <img src="<%= url_for(post.uploaded_image) %>" class="img-fluid">
+      <% else %>
+        <img src="<%post["image"] %>" class="img-fluid">
+      <% end %>
+
+  </div>
 <% end %>
 
-
-<p>
+ <p>
   <a href="/posts/new?place_id=<%= @place["id"] %>">New Post</a>
 </p>
 
 <p>
-  <a href="/places">Back to All Places</a>
+  <a href="/places">Back to All Places</a> 
 </p>
